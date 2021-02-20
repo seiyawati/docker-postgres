@@ -9,3 +9,13 @@ services:
       POSTGRES_PASSWORD: admin
     volumes:
       - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
+  
+  pgamdin4:
+    image: dpage/pgadmin4
+    volumes: 
+      - ./pgadmin4:/var/lib/pgadmin4
+    ports: 
+      - 80:80
+    environment: 
+      PGADMIN_DEFAULT_EMAIL: admin
+      PGADMIN_DEFAULT_PASSWORD: admin

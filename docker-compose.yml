@@ -17,5 +17,7 @@ services:
     ports: 
       - 80:80
     environment: 
-      PGADMIN_DEFAULT_EMAIL: admin
-      PGADMIN_DEFAULT_PASSWORD: admin
+      PGADMIN_DEFAULT_EMAIL: local@local.info
+      PGADMIN_DEFAULT_PASSWORD: password
+    depends_on: 
+      - db

@@ -1,23 +1,18 @@
 version: "3"
 services:
-  db:
-    build: .
-    ports:
-      - 5433:5432
+  appdb:
+    image: postgres:10
+    container_name: "appdb"
     environment:
-      POSTGRES_USER: admin
-      POSTGRES_PASSWORD: admin
+      - POSTGRES_USER
+      - POSTGRES_PASSWORD
+      - POSTGRES_DB
+    ports:
+      - "15432:5432"
     volumes:
-      - ./docker-entrypoint-initdb.d:/docker-entrypoint-initdb.d
-  
-  pgamdin4:
-    image: dpage/pgadmin4
-    volumes: 
-      - ./pgadmin4:/var/lib/pgadmin4
-    ports: 
-      - 80:80
-    environment: 
-      PGADMIN_DEFAULT_EMAIL: local@local.info
-      PGADMIN_DEFAULT_PASSWORD: password
-    depends_on: 
-      - db
+      - database:/var/lib/postgresql/data
+      - ./initdb:/docker-entrypoint-initdb.d
+
+volumes:
+  database:
+    driver: local

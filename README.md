@@ -1,21 +1,23 @@
-# SQL第２版ゼロからはじめるデータベース操作
+# SQL Practice
 
-## 第０章 イントロダクション-SQL学習環境を作ろう
+## 環境構築
 
-## 第１章 データベースとSQL
+イメージの作成  
+```
+docker build -t postgres11-ja .
+```
 
-## 第２章 検索の基本
+コンテナの起動  
+```
+docker run --name postgres -e POSTGRES_PASSWORD=postgres -p 5432:5432 -d postgres
+```
 
-## 第３章 集約と並べ替え
+ポート状態の確認
+```
+lsof -i:5432
+```
 
-## 第４章 データの更新
-
-## 第５章 複雑な問い合わせ
-
-## 第６章 関数、述語、CASE式
-
-## 第７章 集合演算
-
-## 第８章 SQLで高度な処理を行う
-
-## 第９章 アプリケーションからデータベースへ接続する
+アクセス  
+```
+psql -U postgres -d postgres -h localhost
+```

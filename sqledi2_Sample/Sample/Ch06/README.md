@@ -26,6 +26,10 @@ select * from shohin where hanabai_tanka between 100 and 1000;
 引数にサブクエリを取ることができる。  
 つまり、引数にテーブルを指定することができる。  
 
+## NOT IN
+
+NOT IN引数にNULLを含んではならない。
+
 ## EXISTS
 
 常に相関サブクエリを引数に取る。  

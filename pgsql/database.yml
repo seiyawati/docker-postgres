@@ -1,0 +1,7 @@
+db:
+  development:
+    host: localhost
+    user: seiya
+    password: password
+    dbname: shop
+    port: 5432
